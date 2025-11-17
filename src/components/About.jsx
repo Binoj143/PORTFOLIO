@@ -2,10 +2,7 @@ import React, { useMemo } from 'react';
 import '../styles/About.css';
 import AIHelper from './AIHelper';
 
-const aboutItems = [
-  { label: 'Projects Completed', number: 3 },
-  { label: 'Internship Duration', number: '3 Months' }
-];
+const aboutItems = [];
 
 const experiences = [
   {
