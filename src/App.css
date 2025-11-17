@@ -1,0 +1,103 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1rem;
+  color: var(--heading, #f3f7fb);
+}
+
+.App-content {
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-card .card { padding: 2rem; }
+
+.App-logo {
+  width: clamp(110px, 28vmin, 260px);
+  height: auto;
+  pointer-events: none;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo { animation: App-logo-spin infinite 18s linear; }
+}
+
+.App-link {
+  color: var(--accent-1, #56ccf2);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255,255,255,0.06);
+}
+
+.lead {
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  color: var(--muted, #9aa4b2);
+  margin-top: 0.5rem;
+}
+
+.cta {
+  display: inline-flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  color: #0a0e27;
+  padding: 0.6rem 1rem;
+  border-radius: 9px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,217,255,0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  padding: 0.55rem 0.9rem;
+  border-radius: 9px;
+  border: 2px solid rgba(0,217,255,0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-1);
+  color: var(--accent-1);
+  box-shadow: 0 0 20px rgba(0,217,255,0.2);
+}
+
+@keyframes App-logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Responsive adjustments */
+@media (max-width: 920px) {
+  .hero-card { grid-template-columns: 1fr; }
+  .App-header { padding: 2rem 1rem; }
+}
+
+@media (max-width: 480px) {
+  .App-content { padding: 1rem; }
+  .btn-primary, .btn-ghost { padding: 0.5rem 0.7rem; }
+}
