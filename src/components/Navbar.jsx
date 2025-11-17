@@ -80,13 +80,13 @@ const Navbar = React.memo(() => {
             const sectionId = label.toLowerCase();
             return (
               <li key={label}>
-                <a
-                  href="#"
+                <button
                   className={activeSection === sectionId ? 'active' : ''}
                   onClick={handleNavClick(sectionId)}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
                 >
                   {label}
-                </a>
+                </button>
               </li>
             );
           })}
