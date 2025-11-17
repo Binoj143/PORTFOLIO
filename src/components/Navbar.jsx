@@ -81,7 +81,7 @@ const Navbar = React.memo(() => {
             return (
               <li key={label}>
                 <a
-                  href={`#${sectionId}`}
+                  href="#"
                   className={activeSection === sectionId ? 'active' : ''}
                   onClick={handleNavClick(sectionId)}
                 >
