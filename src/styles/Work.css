@@ -167,12 +167,49 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  #work { padding: 2.2rem 1.2rem; }
-  #work h2 { font-size: 1.8rem; }
+  #work {
+    padding: 1.5rem 1.2rem 2rem;
+  }
+  
+  #work h2 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    margin-bottom: 1.2rem;
+  }
+  
+  .works {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .works-item {
+    padding: 1rem;
+  }
+  
+  .works-item h3 {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+  }
+  
+  .works-item p {
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  }
 }
 
 @media (max-width: 420px) {
-  #work { padding: 1.8rem 1rem; }
+  #work {
+    padding: 1.2rem 0.8rem 1.5rem;
+  }
+  
+  #work h2 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+  
+  .works {
+    gap: 0.8rem;
+  }
+  
+  .works-item {
+    padding: 0.8rem;
+  }
 }
 
 /* Entrance animations with reduced-motion support */
