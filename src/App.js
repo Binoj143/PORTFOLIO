@@ -6,6 +6,7 @@ import Work from './components/Work';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+// Main app component
 function App() {
   return (
     <>
