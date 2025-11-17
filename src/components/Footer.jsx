@@ -47,7 +47,7 @@ const Footer = React.memo(() => {
             <i className="fab fa-linkedin-in"></i>
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/binoj3211"
             aria-label="GitHub"
             target="_blank"
             rel="noopener noreferrer"
