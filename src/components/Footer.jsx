@@ -2,18 +2,21 @@ import React, { useEffect, useState, useCallback } from 'react';
 import '../styles/Footer.css';
 
 const Footer = React.memo(() => {
-  const [visitCount, setVisitCount] = useState(null);
+  const [visitCount, setVisitCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchVisitCount = useCallback(async () => {
     try {
-      const response = await fetch('https://api.countapi.xyz/unique/binojbc/portfolio');
+      setIsLoading(true);
+      // Increment the counter and get the updated value
+      const response = await fetch('https://api.countapi.xyz/hit/binojbc/portfolio');
       if (!response.ok) throw new Error('Failed to fetch');
       const data = await response.json();
-      setVisitCount(data.value);
+      setVisitCount(data.value || 0);
     } catch (err) {
       console.error('Visit count error:', err);
-      setVisitCount(null);
+      // Set a default value instead of null
+      setVisitCount(1);
     } finally {
       setIsLoading(false);
     }
@@ -28,8 +31,8 @@ const Footer = React.memo(() => {
       <div className="footer-content">
         <p>© {new Date().getFullYear()} Binoj B Chandran. All rights reserved.</p>
 
-        <p className="visit-count" aria-label={`${visitCount || 0} profile visits`}>
-          <span aria-hidden="true">👁️‍🗨️</span> {isLoading ? 'Loading...' : (visitCount || 0).toLocaleString()} Profile Visits
+        <p className="visit-count" aria-label={`${visitCount} profile visits`}>
+          <span aria-hidden="true">👁️‍🗨️</span> {visitCount.toLocaleString()} Profile Visits
         </p>
 
         <div className="social-links">
