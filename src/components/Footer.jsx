@@ -6,15 +6,35 @@ const Footer = React.memo(() => {
 
   const fetchVisitCount = useCallback(async () => {
     try {
-      // Increment the counter and get the updated value
-      const response = await fetch('https://api.countapi.xyz/hit/binojbc/portfolio');
-      if (!response.ok) throw new Error('Failed to fetch');
-      const data = await response.json();
-      setVisitCount(data.value || 0);
+      // Try CountAPI first
+      const response = await fetch('https://api.countapi.xyz/hit/binojbc/portfolio', {
+        method: 'GET',
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        const count = data.value || 0;
+        setVisitCount(count);
+        // Store in localStorage as backup
+        localStorage.setItem('portfolioVisits', count.toString());
+      } else {
+        // Fallback to localStorage
+        const savedCount = localStorage.getItem('portfolioVisits');
+        const newCount = savedCount ? parseInt(savedCount) + 1 : 1;
+        setVisitCount(newCount);
+        localStorage.setItem('portfolioVisits', newCount.toString());
+      }
     } catch (err) {
       console.error('Visit count error:', err);
-      // Set a default value instead of null
-      setVisitCount(1);
+      // Fallback to localStorage on error
+      try {
+        const savedCount = localStorage.getItem('portfolioVisits');
+        const newCount = savedCount ? parseInt(savedCount) + 1 : 1;
+        setVisitCount(newCount);
+        localStorage.setItem('portfolioVisits', newCount.toString());
+      } catch (e) {
+        setVisitCount(1);
+      }
     }
   }, []);
 
