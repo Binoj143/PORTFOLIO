@@ -32,7 +32,7 @@ const Footer = React.memo(() => {
         <p>© {new Date().getFullYear()} Binoj B Chandran. All rights reserved.</p>
 
         <p className="visit-count" aria-label={`${visitCount} profile visits`}>
-          <span aria-hidden="true">👁️‍🗨️</span> {visitCount.toLocaleString()} Profile Visits
+          <span aria-hidden="true">👁️‍🗨️</span> {visitCount.toLocaleString()}
         </p>
 
         <div className="social-links">
