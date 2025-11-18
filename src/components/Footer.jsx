@@ -3,11 +3,9 @@ import '../styles/Footer.css';
 
 const Footer = React.memo(() => {
   const [visitCount, setVisitCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   const fetchVisitCount = useCallback(async () => {
     try {
-      setIsLoading(true);
       // Increment the counter and get the updated value
       const response = await fetch('https://api.countapi.xyz/hit/binojbc/portfolio');
       if (!response.ok) throw new Error('Failed to fetch');
@@ -17,8 +15,6 @@ const Footer = React.memo(() => {
       console.error('Visit count error:', err);
       // Set a default value instead of null
       setVisitCount(1);
-    } finally {
-      setIsLoading(false);
     }
   }, []);
 
