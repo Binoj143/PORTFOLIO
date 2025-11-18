@@ -28,11 +28,9 @@ const Footer = React.memo(() => {
       <div className="footer-content">
         <p>© {new Date().getFullYear()} Binoj B Chandran. All rights reserved.</p>
 
-        {!isLoading && visitCount && (
-          <p className="visit-count" aria-label={`${visitCount} profile visits`}>
-            <span aria-hidden="true">👁️‍🗨️</span> {visitCount.toLocaleString()} Profile Visits
-          </p>
-        )}
+        <p className="visit-count" aria-label={`${visitCount || 0} profile visits`}>
+          <span aria-hidden="true">👁️‍🗨️</span> {isLoading ? 'Loading...' : (visitCount || 0).toLocaleString()} Profile Visits
+        </p>
 
         <div className="social-links">
           <a href="mailto:binojbc3315@gmail.com" aria-label="Email">
